@@ -49,7 +49,24 @@ python manage.py startapp products
 ```
 * ./products/models.py
     ![MVC design pattern](./images/mvc.jpg)
-    
+  - Create class named Product inside models.py
+  - add 'product' as INSTALLED_APP in trydjango/settings.py
+  - migrate your model to database
+```
+python manage.py makemigrations
+python manage.py migrate
+```
+  ![product Table](./images/productTable.png)
+
+You may need do these 2 commands every single time you make change on your models.py
+* admin.py
+```py
+from .models import Product
+admin.site.register(Product)
+```
+
+![Product app on admin page](images/product.png)
+
 ## Image Magick
 Conver images from png to gif
 ```
