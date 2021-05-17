@@ -1,7 +1,7 @@
-<html>
-
-<body>
-    <h1>Hello World.</h1>
+{% extends 'base.html' %}
+{% block content %}
+<h1><font color="blue">Hello World.</font></h1>
+    The user {{request.user}} is authenticated? 
+    {{request.user.is_authenticated}}
     <p>This is a template.</p>
-</body>
-</html>
+{% endblock %}
