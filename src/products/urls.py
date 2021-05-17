@@ -15,12 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from pages.views import home_view
-from django.contrib.staticfiles.storage import staticfiles_storage
-from django.views.generic.base import RedirectView
+from products import views
 
 urlpatterns = [
-    path('', home_view, name='home'),
+    path('', views.home_view, name='home'),
     path('admin/', admin.site.urls),
-    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico')))
 ]

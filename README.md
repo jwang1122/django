@@ -76,6 +76,35 @@ python manage.py shell
 >>> Product.objects.create(title="New product", description='new description', price='9.99',summary='this is super easy.')
 ```
 
+## products/view.py
+* modify views.py under products folder
+```py
+from django.http import HttpResponse
+from django.shortcuts import render
+
+# Create your views here.
+def home_view(*args, **kwargs):
+    return HttpResponse("<h1>Hello World!</h1>")
+```
+
+* add products/urls.py into products folder
+
+```py
+from django.contrib import admin
+from django.urls import path
+from products import views
+
+urlpatterns = [
+    path('', views.home_view, name='home'),
+    path('admin/', admin.site.urls),
+]
+```
+* change the setting 'ROOT_URLCONF' point to products.urls
+```
+ROOT_URLCONF = 'products.urls'
+```
+in trydjango/settings.py file.
+
 ## References
 * [Django Document](https://docs.djangoproject.com/en/3.2/)
 * [Field Types](https://docs.djangoproject.com/en/3.2/ref/models/fields/)
