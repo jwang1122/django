@@ -67,6 +67,23 @@ admin.site.register(Product)
 
 ![Product app on admin page](images/product.png)
 
+## Python Shell
+
+```
+python manage.py shell
+>>> from products.models import Product
+>>> Product.objects.all()
+>>> Product.objects.create(title="New product", description='new description', price='9.99',summary='this is super easy.')
+```
+
+## References
+* [Django Document](https://docs.djangoproject.com/en/3.2/)
+* [Field Types](https://docs.djangoproject.com/en/3.2/ref/models/fields/)
+* [TextField](https://docs.djangoproject.com/en/3.2/ref/models/fields/#textfield)
+* CharField
+* TextField
+* DecimalField
+
 ## Image Magick
 Conver images from png to gif
 ```
