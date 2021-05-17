@@ -9,6 +9,7 @@
   - [Python Shell](#python-shell)
   - [products/view.py](#productsviewpy)
   - [Get rid of missing favicon.ico file](#get-rid-of-missing-faviconico-file)
+  - [Django Template](#django-template)
   - [References](#references)
   - [Image Magick](#image-magick)
 
@@ -147,6 +148,26 @@ ROOT_URLCONF = 'products.urls'
 in trydjango/settings.py file.
 
 ## Django Template
+* add templates folder (can be named whatever you want.)
+* add html files in it
+* Return render() in views.py
+```py
+def home_view(request, *args, **kwargs):
+    return render(request, "home.html", {})
+```
+* Tell Django where is the templates folder
+  add 'DIRS' setting in trydjango/settings.py file
+```py
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'APP_DIRS': True,
+    }
+]
+```
+* use {% block content %} {% endblock %} in both base.html and templates html file such as home.html
+* use {% include '<filename.html>' %}
 
 
 ## References
