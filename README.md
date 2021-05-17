@@ -77,6 +77,41 @@ python manage.py shell
 ```
 
 ## products/view.py
+* create application named pages
+```
+python manage.py startapp pages
+```
+* modify pages/views.py
+* add the following code in trydiango/urls
+  ```py
+  from pages.views import home_view
+
+  urlpatterns = [
+    path('', home_view, name='home'),
+  ]
+  ```
+  where pages is the application folder, and views is the python file in the folder.
+
+## get rid of missing favicon.ico file
+* add static/images/favicon.ico file
+* in trydjango/settings.py add
+```py
+  STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+```
+* in trydjango/urls.py add path entry for 'favicon.ico' file
+```py
+from django.contrib.staticfiles.storage import staticfiles_storage
+from django.views.generic.base import RedirectView
+
+urlpatterns = [
+    path('', home_view, name='home'),
+    path('home/', home_view, name='home'),
+    path('admin/', admin.site.urls),
+    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico')))
+]
+
+```
+
 * modify views.py under products folder
 ```py
 from django.http import HttpResponse
