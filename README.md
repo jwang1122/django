@@ -8,7 +8,7 @@
   - [Start your own application](#start-your-own-application)
   - [Python Shell](#python-shell)
   - [products/view.py](#productsviewpy)
-  - [get rid of missing favicon.ico file](#get-rid-of-missing-faviconico-file)
+  - [Get rid of missing favicon.ico file](#get-rid-of-missing-faviconico-file)
   - [References](#references)
   - [Image Magick](#image-magick)
 
@@ -98,7 +98,7 @@ python manage.py startapp pages
   ```
   where pages is the application folder, and views is the python file in the folder.
 
-## get rid of missing favicon.ico file
+## Get rid of missing favicon.ico file
 * add static/images/favicon.ico file
 * in trydjango/settings.py add
 ```py
@@ -145,6 +145,9 @@ urlpatterns = [
 ROOT_URLCONF = 'products.urls'
 ```
 in trydjango/settings.py file.
+
+## Django Template
+
 
 ## References
 * [Django Document](https://docs.djangoproject.com/en/3.2/)
