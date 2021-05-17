@@ -11,9 +11,12 @@
     {{my_list}}
 </pre>
 
-<ul>
+<ol>
 {% for my_item in my_list %}
-    <li>{{my_item}}</li>
+    {% if my_item == 223531 %}
+    <li>{{ forloop.counter }}: {{my_item|add:33}}</li>
+    {% endif %}
+    <li>{{ forloop.counter }}: {{my_item}}</li>
 {% endfor %}
-</ul>
+</ol>
 {% endblock %}
