@@ -1,11 +1,17 @@
 # Learn Djando
 
-## Table of Contents- [Learn Djando](#learn-djando)
+## Table of Contents
+- [Learn Djando](#learn-djando)
   - [Table of Contents](#table-of-contents)
   - [install Django module 3.2.3](#install-django-module-323)
   - [django-admin](#django-admin)
   - [Start your own application](#start-your-own-application)
+  - [Python Shell](#python-shell)
+  - [products/view.py](#productsviewpy)
+  - [get rid of missing favicon.ico file](#get-rid-of-missing-faviconico-file)
+  - [References](#references)
   - [Image Magick](#image-magick)
+
 
 ## install Django module 3.2.3
 ```
@@ -147,6 +153,7 @@ in trydjango/settings.py file.
 * CharField
 * TextField
 * DecimalField
+* [3 hours and 45 minutes Django YouTube Video](https://www.youtube.com/watch?v=F5mRW0jo-U4)
 
 ## Image Magick
 Conver images from png to gif
