@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 {% block content %}
-<form action='.' method='POST' > {% csrf_token %}
+<form action="." method='POST'>{% csrf_token %} <!--Cros-site Request Forgery-->
+    {{ form.as_p }}
+    <input type="submit" value="Save"/>
+</form>
+<!-- <form action='.' method='POST' > {% csrf_token %}
     <input type="text" name='title' placeholder="Your title"/>
     <input type="text" name='description' placeholder="Your description"/>
     <input type="float" name='price' placeholder="Your price"/>
 
     <input type="submit" value="Save"/>
 
-</form>
+</form> -->
 {% endblock %}
