@@ -5,11 +5,12 @@ from .forms import ProductForm
 # Create your views here.
 
 def product_create_view(request):
-    print(request.POST)
-    title = request.POST.get('title')
-    description = request.POST.get('description')
-    price = request.POST.get('price')
-    Product.objects.create(title=title, description=description, price=price)
+    # print(request.POST)
+    if request.method=='POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        price = request.POST.get('price')
+        Product.objects.create(title=title, description=description, price=price)
     context = {}
     return render(request, "products/product_create.html",context)
 
