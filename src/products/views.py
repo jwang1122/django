@@ -10,7 +10,8 @@ def product_create_view(request):
         form = RawProductForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data)
-            Product.objects.create(form.cleaned_data)
+            Product.objects.create(**form.cleaned_data)
+            form = RawProductForm()
         else:
             print(form.errors)
     context = {
