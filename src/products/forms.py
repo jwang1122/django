@@ -21,10 +21,9 @@ class ProductForm(forms.ModelForm):
 
     def clean_title(self,*args,**kwargs):
         title = self.cleaned_data.get('title')
-        if "CFE" in title:
-            return title
-        else:
+        if "CFE" not in title:
             raise forms.ValidationError("The title must contain 'CFE'.")
+        return title
 
 class RawProductForm(forms.Form):
     title = forms.CharField(label='Enter title',required=True, max_length=80)
