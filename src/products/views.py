@@ -32,7 +32,12 @@ from .forms import ProductForm, RawProductForm
 
 # using Django Form include values validation
 def product_create_view(request):
-    form = ProductForm(request.POST or None)
+    initial_data = {
+        'title':'My awesome title',
+        'price':10.99,
+        'email':'wangqianjiang@live.edu'
+    }
+    form = ProductForm(request.POST or None, initial=initial_data)
     if form.is_valid():
         form.save()
         form = ProductForm()
@@ -52,3 +57,4 @@ def product_detail_view(request):
         'object':obj
     }
     return render(request, "products/product_detail.html",context)
+

@@ -14,6 +14,7 @@ class ProductForm(forms.ModelForm):
                 "col": 100,
             }))
     price = forms.DecimalField(max_digits=10, decimal_places=2)
+    email = forms.EmailField()
 
     class Meta:
         model = Product
@@ -24,6 +25,12 @@ class ProductForm(forms.ModelForm):
         if "CFE" not in title:
             raise forms.ValidationError("The title must contain 'CFE'.")
         return title
+
+    def clean_email(self,*args,**kwargs):
+        email = self.cleaned_data.get('email')
+        if not email.endswith('edu'):
+            raise forms.ValidationError("The email must end by edu.")
+        return email
 
 class RawProductForm(forms.Form):
     title = forms.CharField(label='Enter title',required=True, max_length=80)
