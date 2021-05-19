@@ -78,8 +78,8 @@ def dynamic_lookup_view(request, id):
     }
     return render(request, "products/product_lookup.html",context)
 
-def product_delete_view(request, _id):
-    obj = get_object_or_404(Product, id=_id)
+def product_delete_view(request, id):
+    obj = get_object_or_404(Product, id=id)
     if request.method =='POST':
         obj.delete()
         return redirect('/list')
@@ -87,3 +87,20 @@ def product_delete_view(request, _id):
         'object':obj
     }
     return render(request, "products/product_delete.html",context)
+
+def product_update_view(request, id=id):
+    obj = get_object_or_404(Product, id=id)
+    initial_data = {
+        'title':obj.title,
+        'price':obj.price,
+        'description':obj.description,
+        'email':'jwang1122@gmail.com',
+    }
+    form = ProductForm(request.POST or None, initial=initial_data)
+    if form.is_valid():
+        form.save()
+        # return redirect('/list')
+    context = {
+        'form':form
+    }
+    return render(request, "products/product_create.html",context)
