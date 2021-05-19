@@ -11,6 +11,8 @@
   - [References](#references)
   - [Display DB data](#display-db-data)
   - [Image Magick](#image-magick)
+  - [Static files](#static-files)
+  - [Sample file structure](#sample-file-structure)
   - [Other related topics](#other-related-topics)
     - [Function based views](#function-based-views)
     - [Class based views](#class-based-views)
@@ -204,6 +206,40 @@ Conver images from png to gif
 ```
 magick F_*.png motion.gif
 magick pencil.png favicon.ico
+```
+
+## Static files
+[STATIC_URL](https://docs.djangoproject.com/en/3.2/howto/static-files/)
+
+Modify [settings.py](src/trydjango/settings.py)
+```py
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+```
+
+## Sample file structure
+```
+├── db.sqlite3
+├── manage.py
+├── wordapp
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── wordcountapp
+    ├── admin.py
+    ├── __init__.py
+    ├── migrations
+    │   ├── __init__.py
+    ├── models.py
+    ├── static
+    │   └── css
+    │       └── style.css
+    ├── templates
+    │   └── index.html
+    ├── tests.py
+    ├── urls.py
+    └── views.py
 ```
 ## Other related topics
 [Generic editing views](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-editing/)
