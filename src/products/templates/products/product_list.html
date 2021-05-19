@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+<div>
+<center>
+<img src="{% static 'images/mvc.jpg' %}">
+</center>
+</div>
+<br/>
 {{object_list}}
 {% for prod in object_list %}
     <p>{{prod.id}} - <a href='{{prod.get_absolute_url}}'>{{prod.title}}</a></p>
