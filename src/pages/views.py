@@ -12,3 +12,6 @@ def about_view(request, *args, **kwargs):
         "my_html":"<h1>Hello World!</h1>",
     }
     return render(request, "about.html",my_context)
+
+def contact_view(request, *args, **kwargs):
+    return render(request, 'contact.html',{})

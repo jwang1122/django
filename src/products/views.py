@@ -105,5 +105,3 @@ def product_update_view(request, id=id):
     }
     return render(request, "products/product_create.html",context)
 
-def contact_view(request):
-    pass
