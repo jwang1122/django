@@ -8,5 +8,5 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
     def get_absolute_url(self):
-        return reverse("product-detail", kwargs={'id':self.id}) # clean and easy way to make url dynamic
+        return reverse("products:product-detail", kwargs={'id':self.id}) # clean and easy way to make url dynamic
         # return f"/products/{self.id}"
