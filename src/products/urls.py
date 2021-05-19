@@ -9,10 +9,10 @@ from .views import (
 )
 
 urlpatterns = [
+    path('', product_list_view, name='product-list'),
     path('product/', product_detail_view),
-    path('products/<int:id>/', dynamic_lookup_view, name='product-detail'),
+    path('<int:id>/', dynamic_lookup_view, name='product-detail'),
     path('create/', product_create_view, name='product-create'),
     path('update/<int:id>/', product_update_view, name='product-update'),
-    path('list/', product_list_view, name='product-list'),
     path('delete/<int:id>/', product_delete_view, name='product-delete'),
 ]

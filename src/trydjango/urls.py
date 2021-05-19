@@ -20,7 +20,7 @@ from django.contrib.staticfiles.storage import staticfiles_storage
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    path("", include("products.urls")),
+    path("products/", include("products.urls")),
 
     path("", home_view, name="home"),
     # path('home/', home_view, name='home'),
