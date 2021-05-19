@@ -2,7 +2,7 @@
 {% block content %}
 {{object_list}}
 {% for prod in object_list %}
-    <p>{{prod.id}} - <a href='{{prod.get_absolute_url}}/'>{{prod.title}}</a></p>
+    <p>{{prod.id}} - <a href='{{prod.get_absolute_url}}'>{{prod.title}}</a></p>
 {% endfor %}
 
 {% endblock %}

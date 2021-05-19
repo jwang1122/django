@@ -23,12 +23,12 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
     path('', home_view, name='home'),
     path('home/', home_view),
-    path('about/', about_view),
+    path('about/', about_view, name='product-about'),
     path('product/', product_detail_view),
-    path('products/<int:_id>/', dynamic_lookup_view),
-    path('create/', product_create_view),
-    path('list/', product_list_view),
-    path('delete/<int:_id>/', product_delete_view),
+    path('products/<int:id>/', dynamic_lookup_view, name='product-detail'),
+    path('create/', product_create_view, name='product-create'),
+    path('list/', product_list_view, name='product-list'),
+    path('delete/<int:id>/', product_delete_view, name='product-delete'),
     path('admin/', admin.site.urls),
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico')))
 ]
