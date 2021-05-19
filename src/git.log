@@ -1,0 +1,44 @@
+c5de4b0 create products/urls.py
+fd77b12 add update view
+291e056 user reverse() function to get url, pay attention to '/' at product_list.html
+55e58d9 get absolute url
+85331e7 make list goes to detail
+bcb9d88 add delete view
+50f3b10 raise Http404 once the product DoesNotExist
+91b6aaa add dynamic look view
+e5776f7 add a list view for displaying all products
+2aebcee render initial values
+6f2da5f if without else
+cc7252a write your own validation function
+a1d69b5 Use attributes to make better form
+0bbaa57 save data to DB by adding ** in front of the data dictionary
+654663d try to save data but errors out
+0092496 Use RawProductForm to grab user's input without saving to database
+8dfd496 check method 'POST' before save the data
+fee3d19 Save data to database
+2c46f9c create own form without saving the data
+ca376e5 Use form to create new product in database
+4c93513 use template within products app
+6bd3def send data row directly to view
+ad1f4cb pull data from database
+5a440ee use filter in the variable
+31170e6 use {% if <statement> %} in html template
+ddc9628 display each item in the list as <li>
+42b1387 add list to context
+79c765d add context, send to page view
+87f918f using navigation bar on each page
+19a0198 make all pages same look & feel
+b52f4fc use {% include '<filename>' %}
+7d8db2b add nav bar in base.html
+9f17b5f use base.html for all pages
+0cd2e45 using templates
+5baf906 Using templates
+ec9c5d2 print out request.user
+2c2a621 add notes for getting rid of missing 'favicon.ico' file error.
+f5fdd50 create own home page, get rid of favicon.ico not found issue.
+d17fa44 add product and school models
+efceb5f remove all *.pyc chach files
+71e3c86 add Product class in models.py
+847be2e add README.md
+f6dd80a add image files
+fa13949 add .gitignore
