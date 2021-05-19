@@ -13,6 +13,7 @@
   - [References](#references)
   - [Display DB data](#display-db-data)
   - [Image Magick](#image-magick)
+  - [Other related topics](#other-related-topics)
 
 
 ## install Django module 3.2.3
@@ -192,3 +193,11 @@ Conver images from png to gif
 magick F_*.png motion.gif
 magick pencil.png favicon.ico
 ```
+## Other related topics
+[Generic editing views](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-editing/)
+* FormView
+* CreateView
+* UpdateView
+* ListView, 
+* DeleteView
+  
