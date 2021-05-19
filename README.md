@@ -11,6 +11,7 @@
   - [Get rid of missing favicon.ico file](#get-rid-of-missing-faviconico-file)
   - [Django Template](#django-template)
   - [References](#references)
+  - [Display DB data](#display-db-data)
   - [Image Magick](#image-magick)
 
 
@@ -180,6 +181,11 @@ TEMPLATES = [
 * [3 hours and 45 minutes Django YouTube Video](https://www.youtube.com/watch?v=F5mRW0jo-U4)
 * [Form Field Document](https://docs.djangoproject.com/en/3.2/ref/forms/fields/#charfield)
 
+## Display DB data
+1. create view function in views.py
+2. add template html in <app>/templates/<app>/<html file name>.html file
+3. add entry in trydjango/urls.py
+4. add entry in src/templates/navbar.html
 ## Image Magick
 Conver images from png to gif
 ```
