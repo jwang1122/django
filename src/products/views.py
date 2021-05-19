@@ -61,6 +61,10 @@ def product_detail_view(request):
 
 def product_list_view(request):
     queryset =  Product.objects.all()
+    # queryset =  Product.objects.all()[:5]
+    # queryset =  Product.objects.filter(id=10)
+    # queryset =  Product.objects.filter(title__contains='CFE')
+    # queryset =  Product.objects.filter(id__gte=4)
     context = {
         "object_list":queryset
     }

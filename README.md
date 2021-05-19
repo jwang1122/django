@@ -1,27 +1,24 @@
 # Learn Djando
 
-## Table of Contents
 - [Learn Djando](#learn-djando)
-  - [Table of Contents](#table-of-contents)
   - [install Django module 3.2.3](#install-django-module-323)
   - [django-admin](#django-admin)
   - [Start your own application](#start-your-own-application)
   - [Python Shell](#python-shell)
-  - [products/view.py](#productsviewpy)
+  - [products/views.py](#productsviewspy)
   - [Get rid of missing favicon.ico file](#get-rid-of-missing-faviconico-file)
   - [Django Template](#django-template)
   - [References](#references)
   - [Display DB data](#display-db-data)
   - [Image Magick](#image-magick)
   - [Other related topics](#other-related-topics)
+    - [Function based views](#function-based-views)
+    - [Class based views](#class-based-views)
 
 
 ## install Django module 3.2.3
 ```
-pip install django- [Learn Djando](#learn-djando)
-  - [django-admin](#django-admin)
-  - [Start your own application](#start-your-own-application)
-  - [Image Magick](#image-magick)
+pip install django
 python -m pip install --upgrade pip
 ```
 
@@ -31,12 +28,12 @@ pip freeze
 ```
 
 ## django-admin
-
 ```
 django-admin
 mkdir src
 cd src
 django-admin startproject <project name> .
+django-admin startproject trydjango
 python manage.py runserver
 ```
 Open browser, type in "localhost:8000"
@@ -57,6 +54,7 @@ python manage.py createsuperuser
 python manage.py startapp products
 ```
 * ./products/models.py
+  
     ![MVC design pattern](./images/mvc.jpg)
   - Create class named Product inside models.py
   - add 'product' as INSTALLED_APP in trydjango/settings.py
@@ -67,8 +65,9 @@ python manage.py migrate
 ```
   ![product Table](./images/productTable.png)
 
-You may need do these 2 commands every single time you make change on your models.py
-* admin.py
+You may need do these 2 commands every single time you make change on your [products/models.py](src/products/models.py)
+
+* modify [products/admin.py](src/products/admin.py)
 ```py
 from .models import Product
 admin.site.register(Product)
@@ -85,13 +84,15 @@ python manage.py shell
 >>> Product.objects.create(title="New product", description='new description', price='9.99',summary='this is super easy.')
 ```
 
-## products/view.py
+## products/views.py
+
+[products/views.py](src/products/views.py)
 * create application named pages
 ```
 python manage.py startapp pages
 ```
-* modify pages/views.py
-* add the following code in trydiango/urls
+* modify [pages/views.py](src/pages/views.py)
+* add the following code in [trydjango/urls.py](src/trydjango/urls.py)
   ```py
   from pages.views import home_view
 
@@ -121,7 +122,7 @@ urlpatterns = [
 
 ```
 
-* modify views.py under products folder
+* modify [views.py](src/products/views.py) under products folder
 ```py
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -131,7 +132,7 @@ def home_view(*args, **kwargs):
     return HttpResponse("<h1>Hello World!</h1>")
 ```
 
-* add products/urls.py into products folder
+* [works, but incorrect] add products/urls.py into products folder
 
 ```py
 from django.contrib import admin
@@ -143,22 +144,22 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 ```
-* change the setting 'ROOT_URLCONF' point to products.urls
+* [works, but incorrect] change the setting 'ROOT_URLCONF' point to products.urls
 ```
 ROOT_URLCONF = 'products.urls'
 ```
 in trydjango/settings.py file.
 
 ## Django Template
-* add templates folder (can be named whatever you want.)
-* add html files in it
-* Return render() in views.py
+* add src/templates folder (can be named whatever you want.)
+* add html files in it, [home.html](src/templates/home.html)
+* Return render() in [views.py](src/pages/views.py)
 ```py
 def home_view(request, *args, **kwargs):
     return render(request, "home.html", {})
 ```
 * Tell Django where is the templates folder
-  add 'DIRS' setting in trydjango/settings.py file
+  add 'DIRS' setting in [trydjango/settings.py](src/trydjango/settings.py) file
 ```py
 TEMPLATES = [
     {
@@ -168,8 +169,19 @@ TEMPLATES = [
     }
 ]
 ```
-* use {% block content %} {% endblock %} in both base.html and templates html file such as home.html
-* use {% include '<filename.html>' %}
+* use {% block content %} {% endblock %} in both [base.html](src/templates/base.html) and templates html file such as [home.html](src/templates/home.html)
+* use {% extends '<filename.html>' %} in all template html file
+  ```html
+  {% extends 'base.html' %}
+  {% block content %}
+
+    <h1><font color="blue">Hello World.</font></h1>
+      The user {{request.user}} is authenticated? 
+      {{request.user.is_authenticated}}
+      <p>This is a <font style="color:crimson;font-weight: bold;">Home Page</font> template.</p>
+  {% endblock %}
+
+  ```
 
 
 ## References
@@ -183,10 +195,10 @@ TEMPLATES = [
 * [Form Field Document](https://docs.djangoproject.com/en/3.2/ref/forms/fields/#charfield)
 
 ## Display DB data
-1. create view function in views.py
+1. create view function in [views.py](src/products/views.py)
 2. add template html in <app>/templates/<app>/<html file name>.html file
-3. add entry in trydjango/urls.py
-4. add entry in src/templates/navbar.html
+3. add entry in [trydjango/urls.py](src/trydjango/urls.py)
+4. add entry in [navbar.html](src/templates/navbar.html)
 ## Image Magick
 Conver images from png to gif
 ```
@@ -195,6 +207,10 @@ magick pencil.png favicon.ico
 ```
 ## Other related topics
 [Generic editing views](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-editing/)
+
+### Function based views
+
+### Class based views
 * FormView
 * CreateView
 * UpdateView
