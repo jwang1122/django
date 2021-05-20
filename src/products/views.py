@@ -94,16 +94,12 @@ def product_delete_view(request, id):
 
 def product_update_view(request, id=id):
     obj = get_object_or_404(Product, id=id)
-    initial_data = {
-        'title':obj.title,
-        'price':obj.price,
-        'description':obj.description,
-        'email':'jwang1122@gmail.com',
-    }
-    form = ProductForm(request.POST or None, initial=initial_data)
-    if form.is_valid():
-        form.save()
-        # return redirect('/list')
+    form = ProductForm(request.POST or None, instance=obj)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.id= id
+            form.save()
+            return redirect('/products')
     context = {
         'form':form
     }

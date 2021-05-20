@@ -8,8 +8,15 @@
 </div>
 <br/>
 {{object_list}}
+<table>
 {% for prod in object_list %}
-    <p>{{prod.id}} - <a href='{{prod.get_absolute_url}}'>{{prod.title}}</a></p>
+    {% cycle 'row1' 'row2' as rowcolors silent %}
+    <tr class="{{ rowcolors }}">
+        <td>{{prod.id}}</td>
+        <td><a href='{{ prod.get_absolute_url }}'>{{prod.title}}</a></td>
+        <td><a href='{{ prod.get_update_url }}'>Update</a></td>
+    </tr>
 {% endfor %}
+</table>
 
 {% endblock %}
