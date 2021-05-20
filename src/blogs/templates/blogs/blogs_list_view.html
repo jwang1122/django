@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<table>
+{% for blog in object_list %}
+    {% cycle 'row1' 'row2' as rowcolors silent %}
+    <tr class="{{ rowcolors }}">
+        <td>{{blog.id}}</td>
+        <td>{{blog.topic}}</td>
+    </tr>
+{% endfor %}
+</table>
+
+{% endblock %}

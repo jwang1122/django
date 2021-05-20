@@ -12,6 +12,7 @@
   - [Image Magick](#image-magick)
   - [Static files](#static-files)
   - [Sample file structure](#sample-file-structure)
+  - [Start blogs app from scratch](#start-blogs-app-from-scratch)
   - [Other related topics](#other-related-topics)
     - [Function based views](#function-based-views)
     - [Class based views](#class-based-views)
@@ -55,6 +56,7 @@ python manage.py createsuperuser
 [Learn Djando](#learn-djando)
 
 ## Start your own application
+Switch to src/ folder, and
 ```
 python manage.py startapp products
 ```
@@ -245,6 +247,43 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 ```
 
 [Learn Djando](#learn-djando)
+
+## Start blogs app from scratch
+* generate src/blogs folder
+```
+Start blogs app from scratch
+```
+* add app entry in [trydjango/settings.py](src/trydjango/settings.py)
+
+    ```py
+
+    INSTALLED_APPS = [
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+        # my own
+        'school',
+        'products',
+        'blogs',
+    ]
+    ```
+* define a model class Blog in [blogs/models.py](src/blogs/models.py)
+* register the mode in [blogs/admin.py](src/blogs/admin.py)
+* migrate data model Blog to database
+  ```
+  python manage.py makemigrations
+  python manage.py migrate
+  ```
+
+  ![Blog table in DB](images/blogDB.png)
+
+* create [blogs/templates/blogs_list_view.html](src/blogs/templates/blogs/blogs_list_view.html)
+* define blog_list_view() function in [blogs/views.py](src/blogs/views.py)
+* add entry in [trydjango/urls.py](src/trydjango/urls.py)
+
 
 ## Other related topics
 [Generic editing views](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-editing/)
