@@ -10,3 +10,6 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse("products:product-detail", kwargs={'id':self.id}) # clean and easy way to make url dynamic
         # return f"/products/{self.id}"
+    
+    def get_update_url(self):
+        return reverse("products:product-update", kwargs={'id':self.id}) # clean and easy way to make url dynamic
