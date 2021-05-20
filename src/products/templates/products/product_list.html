@@ -15,6 +15,7 @@
         <td>{{prod.id}}</td>
         <td><a href='{{ prod.get_absolute_url }}'>{{prod.title}}</a></td>
         <td><a href='{{ prod.get_update_url }}'>Update</a></td>
+        <td><a href='{{ prod.get_delete_url }}'>Delete</a></td>
     </tr>
 {% endfor %}
 </table>

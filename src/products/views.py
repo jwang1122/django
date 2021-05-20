@@ -86,7 +86,7 @@ def product_delete_view(request, id):
     obj = get_object_or_404(Product, id=id)
     if request.method =='POST':
         obj.delete()
-        return redirect('/list')
+        return redirect('/products')
     context = {
         'object':obj
     }

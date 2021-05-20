@@ -13,3 +13,6 @@ class Product(models.Model):
     
     def get_update_url(self):
         return reverse("products:product-update", kwargs={'id':self.id}) # clean and easy way to make url dynamic
+
+    def get_delete_url(self):
+        return reverse("products:product-delete", kwargs={'id':self.id}) # clean and easy way to make url dynamic
