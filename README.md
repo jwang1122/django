@@ -8,7 +8,6 @@
   - [products/views.py](#productsviewspy)
   - [Get rid of missing favicon.ico file](#get-rid-of-missing-faviconico-file)
   - [Django Template](#django-template)
-  - [References](#references)
   - [Display DB data](#display-db-data)
   - [Image Magick](#image-magick)
   - [Static files](#static-files)
@@ -16,6 +15,7 @@
   - [Other related topics](#other-related-topics)
     - [Function based views](#function-based-views)
     - [Class based views](#class-based-views)
+  - [References](#references)
 
 
 ## install Django module 3.2.3
@@ -28,6 +28,7 @@ check all modules that pip installed
 ```
 pip freeze
 ```
+[Learn Djando](#learn-djando)
 
 ## django-admin
 ```
@@ -50,6 +51,8 @@ Stop the app by click Ctrl+c on terminal
 python manage.py migrate
 python manage.py createsuperuser
 ```
+
+[Learn Djando](#learn-djando)
 
 ## Start your own application
 ```
@@ -77,6 +80,8 @@ admin.site.register(Product)
 
 ![Product app on admin page](images/product.png)
 
+[Learn Djando](#learn-djando)
+
 ## Python Shell
 
 ```
@@ -103,6 +108,8 @@ python manage.py startapp pages
   ]
   ```
   where pages is the application folder, and views is the python file in the folder.
+
+[Learn Djando](#learn-djando)
 
 ## Get rid of missing favicon.ico file
 * add static/images/favicon.ico file
@@ -152,6 +159,8 @@ ROOT_URLCONF = 'products.urls'
 ```
 in trydjango/settings.py file.
 
+[Learn Djando](#learn-djando)
+
 ## Django Template
 * add src/templates folder (can be named whatever you want.)
 * add html files in it, [home.html](src/templates/home.html)
@@ -185,16 +194,7 @@ TEMPLATES = [
 
   ```
 
-
-## References
-* [Django Document](https://docs.djangoproject.com/en/3.2/)
-* [Field Types](https://docs.djangoproject.com/en/3.2/ref/models/fields/)
-* [TextField](https://docs.djangoproject.com/en/3.2/ref/models/fields/#textfield)
-* CharField
-* TextField
-* DecimalField
-* [3 hours and 45 minutes Django YouTube Video](https://www.youtube.com/watch?v=F5mRW0jo-U4)
-* [Form Field Document](https://docs.djangoproject.com/en/3.2/ref/forms/fields/#charfield)
+[Learn Djando](#learn-djando)
 
 ## Display DB data
 1. create view function in [views.py](src/products/views.py)
@@ -207,6 +207,8 @@ Conver images from png to gif
 magick F_*.png motion.gif
 magick pencil.png favicon.ico
 ```
+
+[Learn Djando](#learn-djando)
 
 ## Static files
 [STATIC_URL](https://docs.djangoproject.com/en/3.2/howto/static-files/)
@@ -241,6 +243,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     ├── urls.py
     └── views.py
 ```
+
+[Learn Djando](#learn-djando)
+
 ## Other related topics
 [Generic editing views](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-editing/)
 
@@ -252,4 +257,30 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 * UpdateView
 * ListView, 
 * DeleteView
-  
+
+[Learn Djando](#learn-djando)
+
+## References
+* [Django Document](https://docs.djangoproject.com/en/3.2/)
+* [Field Types](https://docs.djangoproject.com/en/3.2/ref/models/fields/)
+* [TextField](https://docs.djangoproject.com/en/3.2/ref/models/fields/#textfield)
+* CharField
+* TextField
+* DecimalField
+* [3 hours and 45 minutes Django YouTube Video](https://www.youtube.com/watch?v=F5mRW0jo-U4)
+* [Form Field Document](https://docs.djangoproject.com/en/3.2/ref/forms/fields/#charfield)
+* [Built in template tags](## References
+* [Django Document](https://docs.djangoproject.com/en/3.2/)
+* [Field Types](https://docs.djangoproject.com/en/3.2/ref/models/fields/)
+* [TextField](https://docs.djangoproject.com/en/3.2/ref/models/fields/#textfield)
+* CharField
+* TextField
+* DecimalField
+* [3 hours and 45 minutes Django YouTube Video](https://www.youtube.com/watch?v=F5mRW0jo-U4)
+* [Form Field Document](https://docs.djangoproject.com/en/3.2/ref/forms/fields/#charfield)
+* [template tags](https://docs.djangoproject.com/en/3.2/ref/templates/builtins/)
+  * {% block %} {% endblock %}
+  * {% crsf_token %}
+  * {% for x in somelist %} {% endfor %}
+
+[Learn Djando](#learn-djando)
