@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Blog
 from django.views import View
 from django.views.generic import (
@@ -10,7 +10,11 @@ from django.views.generic import (
 )
 class BlogDetailView(DetailView):
     template_name = 'blogs/blog_detail.html' # override default template file name
-    queryset =  Blog.objects.all() # look for: <app>/<modelname>_<view>.html
+    # queryset =  Blog.objects.all() # look for: <app>/<modelname>_<view>.
+    
+    def get_object(self):
+        _id = self.kwargs.get("id")
+        return get_object_or_404(Blog, id=_id)
     
 class BlogListView2(ListView):
     template_name = 'blogs/blog_list.html' # override default template file name
