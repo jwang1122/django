@@ -10,10 +10,23 @@ from django.views.generic import (
 from .forms import BlogForm
 from .models import Blog
 
-class BlogCreateView(CreateView):
+class BlogUpdateView(UpdateView):
     template_name = 'blogs/blog_create.html' 
     form_class = BlogForm
     queryset =  Blog.objects.all() 
+    # success_url = '/' # 1 way to define return page url
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+    def get_object(self):
+        _id = self.kwargs.get("id")
+        return get_object_or_404(Blog, id=_id)
+
+class BlogCreateView(CreateView):
+    template_name = 'blogs/blog_create.html' 
+    form_class = BlogForm
+    # queryset =  Blog.objects.all() 
     # success_url = '/' # 1 way to define return page url
 
     def form_valid(self, form):
