@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+<h1>All topics in the Database</h1>
 <table>
 {% for blog in object_list %}
     {% cycle 'row1' 'row2' as rowcolors silent %}

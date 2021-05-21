@@ -14,10 +14,14 @@ class BlogCreateView(CreateView):
     template_name = 'blogs/blog_create.html' 
     form_class = BlogForm
     queryset =  Blog.objects.all() 
-    
+    # success_url = '/' # 1 way to define return page url
+
     def form_valid(self, form):
         print(form.cleaned_data)
         return super().form_valid(form)
+
+    def get_success_url(self) -> str:
+        return '/blogs'
 
 class BlogDetailView(DetailView):
     template_name = 'blogs/blog_detail.html' # override default template file name
