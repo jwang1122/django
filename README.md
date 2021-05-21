@@ -13,9 +13,11 @@
   - [Static files](#static-files)
   - [Sample file structure](#sample-file-structure)
   - [Start blogs app from scratch](#start-blogs-app-from-scratch)
+  - [3 requirements for Django's views](#3-requirements-for-djangos-views)
   - [Other related topics](#other-related-topics)
     - [Function based views](#function-based-views)
     - [Class based views](#class-based-views)
+  - [Django File Structure](#django-file-structure)
   - [References](#references)
 
 
@@ -284,9 +286,19 @@ Start blogs app from scratch
 * define blog_list_view() function in [blogs/views.py](src/blogs/views.py)
 * add entry in [trydjango/urls.py](src/trydjango/urls.py)
 
+## 3 requirements for Django's views
+1. They are callable. A view can be either function or a class-based view. CBVs inherit the method as_view() which uses a dispatch() method to call the appropriate method depending on the HTTP verb (get, post, etc),
+2. They must accept an HttpRequest object as its first positional argument,
+3. They must return an HttpResponse object or raise an exception.
 
 ## Other related topics
 [Generic editing views](https://docs.djangoproject.com/en/3.2/ref/class-based-views/generic-editing/)
+
+[好文][Class based view vs. Function based view](https://medium.com/@ksarthak4ever/django-class-based-views-vs-function-based-view-e74b47b2e41b)
+
+![Which one should be used?](images/ClassBasedView-FunctionBased.jpeg)
+
+<h3>Keep that in mind: class-based views does not replace function-based views.</h3>
 
 ### Function based views
 
@@ -298,6 +310,10 @@ Start blogs app from scratch
 * DeleteView
 
 [Learn Djando](#learn-djando)
+
+## Django File Structure
+
+![File Structure](images/FileStructure.svg)
 
 ## References
 * [Django Document](https://docs.djangoproject.com/en/3.2/)
