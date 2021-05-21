@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Blog
 from django.views import View
 from django.views.generic import (
     CreateView,
@@ -8,6 +7,18 @@ from django.views.generic import (
     ListView,
     UpdateView,
 )
+from .forms import BlogForm
+from .models import Blog
+
+class BlogCreateView(CreateView):
+    template_name = 'blogs/blog_create.html' 
+    form_class = BlogForm
+    queryset =  Blog.objects.all() 
+    
+    def form_valid(self, form):
+        print(form.cleaned_data)
+        return super().form_valid(form)
+
 class BlogDetailView(DetailView):
     template_name = 'blogs/blog_detail.html' # override default template file name
     # queryset =  Blog.objects.all() # look for: <app>/<modelname>_<view>.
