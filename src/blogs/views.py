@@ -44,6 +44,16 @@ class BlogDetailView(DetailView):
         _id = self.kwargs.get("id")
         return get_object_or_404(Blog, id=_id)
     
+class BlogDeleteView(DeleteView):
+    template_name = 'blogs/blog_delete.html' # override default template file name
+    
+    def get_object(self):
+        _id = self.kwargs.get("id")
+        return get_object_or_404(Blog, id=_id)
+
+    def get_success_url(self) -> str:
+        return '/blogs'
+
 class BlogListView2(ListView):
     template_name = 'blogs/blog_list.html' # override default template file name
     queryset =  Blog.objects.all() # look for: <app>/<modelname>_<view>.html
