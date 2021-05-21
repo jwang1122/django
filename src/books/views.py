@@ -14,3 +14,13 @@ class BookListView(View):
     def get(self, request, *args, **kwargs):
         context = {'object_list': self.get_queryset()}
         return render(request, self.template_name, context)
+
+class BookDetailView(View):
+    template_name = 'books/book_detail.html' # override default template file name
+
+    def get(self, request, id=None, *args, **kwargs):
+        context = {}
+        if id is not None:
+            obj = get_object_or_404(Book, id=id)
+            context = {"object":get_object_or_404(Book,id=id)}
+        return render(request, self.template_name, context)
