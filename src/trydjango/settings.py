@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'school',
     'products',
     'blogs',
+    'books',
 ]
 
 MIDDLEWARE = [

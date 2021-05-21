@@ -17,6 +17,7 @@
   - [Other related topics](#other-related-topics)
     - [Function based views](#function-based-views)
     - [Class based views](#class-based-views)
+  - [Django Generic Views](#django-generic-views)
   - [Django File Structure](#django-file-structure)
   - [References](#references)
 
@@ -310,6 +311,13 @@ Start blogs app from scratch
 * DeleteView
 
 [Learn Djando](#learn-djando)
+
+## Django Generic Views
+* create a books app
+```
+cd src
+python manage.py startapp books
+```
 
 ## Django File Structure
 
