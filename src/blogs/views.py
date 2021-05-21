@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.shortcuts import render, get_object_or_404
 from django.views import View
 from django.views.generic import (
@@ -52,7 +53,7 @@ class BlogDeleteView(DeleteView):
         return get_object_or_404(Blog, id=_id)
 
     def get_success_url(self) -> str:
-        return '/blogs'
+        return reverse("blogs:blog-list") # clean and easy way to make url dynamic
 
 class BlogListView2(ListView):
     template_name = 'blogs/blog_list.html' # override default template file name
