@@ -11,14 +11,13 @@
   - [Display DB data](#display-db-data)
   - [Image Magick](#image-magick)
   - [Static files](#static-files)
-  - [Sample file structure](#sample-file-structure)
+  - [Django File Structure](#django-file-structure)
   - [Start blogs app from scratch](#start-blogs-app-from-scratch)
   - [3 requirements for Django's views](#3-requirements-for-djangos-views)
   - [Other related topics](#other-related-topics)
     - [Function based views](#function-based-views)
     - [Class based views](#class-based-views)
   - [Django Generic Views](#django-generic-views)
-  - [Django File Structure](#django-file-structure)
   - [References](#references)
 
 
@@ -224,7 +223,11 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 ```
 
-## Sample file structure
+## Django File Structure
+
+![File Structure](images/FileStructure.svg)
+
+Sample Django File Structure
 ```
 ├── db.sqlite3
 ├── manage.py
@@ -318,10 +321,6 @@ Start blogs app from scratch
 cd src
 python manage.py startapp books
 ```
-
-## Django File Structure
-
-![File Structure](images/FileStructure.svg)
 
 ## References
 * [Django Document](https://docs.djangoproject.com/en/3.2/)
