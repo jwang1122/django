@@ -8,9 +8,13 @@ from django.views.generic import (
     ListView,
     UpdateView,
 )
-
+class BlogDetailView(DetailView):
+    template_name = 'blogs/blog_detail.html' # override default template file name
+    queryset =  Blog.objects.all() # look for: <app>/<modelname>_<view>.html
+    
 class BlogListView2(ListView):
-    queryset =  Blog.objects.all() # look for: blog/modelname_list.html
+    template_name = 'blogs/blog_list.html' # override default template file name
+    queryset =  Blog.objects.all() # look for: <app>/<modelname>_<view>.html
 
 
 class BlogListView(View):
