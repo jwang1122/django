@@ -70,4 +70,30 @@ class BookUpdateView(View):
         return render(request, self.template_name,{})
 
 class BookDeleteView(View):
-    pass
+    template_name = 'books/book_delete.html' # override default template file name
+
+    def get_object(self):
+        _id = self.kwargs.get('id')
+        obj = None
+        if id is not None:
+            obj = get_object_or_404(Book, id=_id)
+        return obj
+
+    def get(self, request, id=None, *args, **kwargs):
+        context = {}
+        if id is not None:
+            obj = self.get_object()
+            if obj is not None:
+                context = {'object':obj}
+        return render(request, self.template_name,context)
+
+    def post(self, request, *args, **kwargs):
+        context = {}
+        if id is not None:
+            obj = self.get_object()
+            if request.method == 'POST' and obj is not None:
+                obj.delete()
+                return redirect("/books")
+            if obj is not None:
+                context = {'object':obj}
+        return render(request, self.template_name,context)
