@@ -94,14 +94,14 @@ def product_delete_view(request, id):
 
 def product_update_view(request, id=id):
     obj = get_object_or_404(Product, id=id)
-    form = ProductForm(request.POST or None, instance=obj)
-    if request.method == 'POST':
+    context={}
+    if obj is not None:
+        form = ProductForm(request.POST or None, instance=obj)
         if form.is_valid():
-            form.id= id
             form.save()
             return redirect('/products')
-    context = {
-        'form':form
-    }
-    return render(request, "products/product_create.html",context)
+        context = {
+            'form':form
+        }
+    return render(request, "products/product_update.html",context)
 

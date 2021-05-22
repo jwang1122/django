@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Update a Product object in DB</h1>
+<form action="." method='POST'>{% csrf_token %} <!--Cros-site Request Forgery-->
+    {{ form.as_p }}
+    <input type="submit" value="Save"/>
+</form>
+{% endblock %}
