@@ -10,6 +10,9 @@ class Book(models.Model):
     def get_absolute_url(self):
         return reverse("books:book-detail", kwargs={'id':self.id}) # clean and easy way to make url dynamic
 
+    def get_create_url(self):
+        return reverse("books:create-update", kwargs={'id':self.id}) # clean and easy way to make url dynamic
+
     def get_update_url(self):
         return reverse("books:book-update", kwargs={'id':self.id}) # clean and easy way to make url dynamic
 
